@@ -1,38 +1,191 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  overflow: hidden;
+  background-color: #ebebeb;
+}
+
+.left {
+  width: 40vw;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgba(0,0,0,0.6);
+  background-image: url("./assets/CASBackground.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: darken;
+  padding: 50px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.left h1 {
+  font-size: 50px;
+  font-weight: bold;
+  display: inline-block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.right {
+  width: 60vw;
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add Experience */
+
+.addExperienceForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.addExperienceForm h1 {
+  font-weight: bold;
+  margin-top: 20px;
+  color: white;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.addExperienceForm input[type=text], .addExperienceForm input[type=url] {
+  margin: 5px 0;
+  float: right;
+  width: 250px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+}
+
+.addExperienceForm p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.addExperienceForm .category input[type=checkbox] {
+  margin-right: 10px;
+  width: 30px;
+}
+
+.addExperienceForm .outcomes input[type=checkbox] {
+  margin-right: 10px;
+  width: 30px;
+}
+
+.addExperienceForm select {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+}
+
+input[type=submit] {
+  margin-top: 25px;
+  padding: 8px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1.5px solid white;
+  color: white;
+}
+
+input[type=submit]:hover {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px solid white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Database */
+
+.right .table {
+  margin-top: 5vh;
+  width: 63vw;
+  overflow-y: scroll;
+}
+
+.right .table .experience {
+  margin-bottom: 25px;
+  padding: 25px;
+  display: flex;
+  background: #f7f7ff;
+  border-radius: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.right .table .experience h2 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.right .table .experience a {
+  font-weight: lighter;
+  font-size: 18px;
+  color: #ec6d51;
+}
+
+.right .table .experience .properties {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.right .table .experience .properties h5 {
+  margin: 8px;
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-size: 15px;
+  height: fit-content;
+  width: fit-content;
+  background: #edae49;
+}
+
+.properties #Creativity {
+  background: #d1495b;
+  color: white;
+}
+
+.properties #Activity {
+  background: #30638e;
+  color: white;
+}
+
+.properties #Service {
+  background: #00798c;
+  color: white;
+}
+
+.properties #subjects {
+  background: #1a1a1a;
+  color: white;
+}
+
+/* Modal */
+.btn-primary {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #003d5b;
+  font-weight: bold;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #1a1a1a;
+}
+
+.modal-content {
+  padding: 10px;
+  border-radius: 20px;
+  border: 0;
+}
+
+.modal-title {
+  font-weight: bold;
+  color: #1e76e3;
+  font-size: 25px;
 }

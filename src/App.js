@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Table from './components/Table';
+import ToggleAdd from './components/ToggleAdd';
+import AddExperience from './components/AddExperience';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <div className="left">
+        <h1>CAS Launchpad</h1>
+        <AddExperience/>
+      </div>
+
+      <div className="right">
+        <ToggleAdd/>
+        <Table/>
+      </div>
+
     </div>
   );
 }
