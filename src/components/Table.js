@@ -1,5 +1,5 @@
 import React from 'react'
-import db from "../firebase"
+import db from '../firebase';
 
 class Table extends React.Component {
 
@@ -7,22 +7,32 @@ class Table extends React.Component {
         super(props);
         this.state = {
             experiences: []
-        };
+        }
+
     }
 
     componentDidMount() {
-        db.collection("experiences")
-            .get()
+        let query = this.props.query
+        // Query = ["creativity", "service", etc]
+        db.collection("experiences").get()
             .then(querySnapshot => {
                 const data = querySnapshot.docs.map(doc => doc.data());
-                console.log(data);
+                this.setState({ experiences: data })
+            });
+    }
+
+    componentDidUpdate() {
+        let query = this.props.query
+        db.collection("experiences").get()
+            .then(querySnapshot => {
+                const data = querySnapshot.docs.map(doc => doc.data());
                 this.setState({ experiences: data })
             });
     }
 
     render() {
 
-        let experiences = this.state.experiences
+        let experiences = this.state.experiences;
 
         return (
             <div className="table">

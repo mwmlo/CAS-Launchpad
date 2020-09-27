@@ -186,6 +186,20 @@ input[type=submit]:hover {
 
 .modal-title {
   font-weight: bold;
-  color: #1e76e3;
+  color: #003d5b;
   font-size: 25px;
+}
+
+#submitQuery {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #003d5b;
+  font-weight: bold;
+  border: none;
+  color: white;
+}
+
+.filter form {
+  display: flex;
+  flex-direction: column;
 }

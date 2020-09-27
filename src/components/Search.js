@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 import Filter from './Filter'
 
-class ToggleAdd extends Component {
+class Search extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            query: this.props.query
+        }
+    }
+
     render() {
+
+        console.log("this.props.query = ", this.state.query)
+
         return (
             <React.Fragment>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
@@ -19,7 +30,7 @@ class ToggleAdd extends Component {
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <Filter />
+                                <Filter updateQuery={this.props.updateQuery}/>
                             </div>
                         </div>
                     </div>
@@ -30,4 +41,4 @@ class ToggleAdd extends Component {
     }
 }
 
-export default ToggleAdd;
+export default Search;
