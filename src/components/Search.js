@@ -3,16 +3,11 @@ import Filter from './Filter'
 
 class Search extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            query: this.props.query
-        }
+    sendQueryFunction = (queryInput) => {
+        this.props.updateAppQuery(queryInput);
     }
 
     render() {
-
-        console.log("this.props.query = ", this.state.query)
 
         return (
             <React.Fragment>
@@ -30,7 +25,7 @@ class Search extends Component {
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <Filter updateQuery={this.props.updateQuery}/>
+                                <Filter updateSearchQuery={this.sendQueryFunction}/>
                             </div>
                         </div>
                     </div>

@@ -7,20 +7,15 @@ import AddExperience from './components/AddExperience';
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      query: []
-    }
+  state = {query: []}
 
-    this.updateQuery = this.updateQuery.bind(this)
-  }
-
-  updateQuery(filter) {
+  updateAppQueryFunction = (filter) => {
     this.setState({query: filter})
   }
 
   render() {
+
+    console.log("Query state:", this.state.query)
 
     return (
       <div className="App">
@@ -31,7 +26,8 @@ class App extends React.Component {
         </div>
 
         <div className="right">
-          <Search query={this.state.query} updateQuery={this.updateQuery}/>
+          <Search updateAppQuery={this.updateAppQueryFunction}/>
+          {this.state.query}
           <Table query={this.state.query} />
         </div>
 

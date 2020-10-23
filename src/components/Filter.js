@@ -3,45 +3,43 @@ import db from "../firebase"
 
 class Filter extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            filters: [],
-            subject: ""
-        };
-
-        this.handleSubjectChange = this.handleSubjectChange.bind(this);
-        this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+    state = {
+        filters: [],
+        subject: ""
     }
 
-    handleSubjectChange(event) {
+    handleSubjectChange = (event) => {
         const subject = event.target.value;
-        this.setState({ subject: subject})
+        this.setState({subject: subject})
     }
 
     handleCheckboxChange = (event) => {
+
         const filters = this.state.filters
         const target = event.target;
-        const val = target.type === 'checkbox' ? target.checked : target.value;
-        const nam = target.name;
 
-        if (!filters.includes(nam) && val) {
-            filters.push(nam)
+        const boxValue = target.type === 'checkbox' ? target.checked : target.value;
+        const boxName = target.name;
+
+        if (!filters.includes(boxName) && boxValue) {
+            filters.push(boxName)
         }
-        if (filters.includes(nam) && !val) {
-            filters.pop(nam)
+        if (filters.includes(boxName) && !boxValue) {
+            filters.pop(boxName)
         }
+
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
 
         event.preventDefault();
 
         const filters = this.state.filters
-        filters.push(this.state.subject)
+        if (this.state.subject !== "") { filters.push(this.state.subject) }
 
-        this.props.updateQuery(filters)
+        console.log("Submit filters:", filters)
+
+        this.props.updateSearchQuery(filters)
 
     }
 

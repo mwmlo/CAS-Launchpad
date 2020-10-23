@@ -1,34 +1,67 @@
 import React from 'react'
 import db from '../firebase';
 
-class Table extends React.Component {
+class Table extends React.PureComponent {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            experiences: []
+    state = {
+        experiences: []
+    }
+    
+    componentDidMount() {
+        db.collection("experiences").get()
+            .then(querySnapshot => {
+                const data = querySnapshot.docs.map(doc => doc.data());
+                this.setState({experiences: data})
+            });
+    }
+
+    updateTable() {
+
+        let experiences = this.state.experiences;
+        let inputQuery = this.props.query
+        let queriedExperiences = []
+
+        for (var entry in experiences) {
+
+            let experience = experiences[entry]
+
+            for (var tag in experience["tags"]) {
+
+                let queryTag = experience["tags"][tag].toLowerCase();
+
+                for (var label in inputQuery) {
+
+                    let inputLabel = inputQuery[label];
+
+                    if (queryTag === inputLabel) {
+                        queriedExperiences.push(experience)
+                    }
+
+                }
+            }
+        }
+
+        if (inputQuery === [[], ""]) {
+            queriedExperiences = experiences;
+            console.log("InputQuery is blank")
+        }
+
+        console.log("Queried Exp:", queriedExperiences, "Input query:", inputQuery)
+        this.setState({experiences: queriedExperiences})
+
+    }
+
+    componentDidUpdate(prevProps) {
+
+        console.log("Current query: ", this.props.query)
+
+        if (this.props !== prevProps) {
+
+            this.updateTable();
         }
 
     }
 
-    componentDidMount() {
-        let query = this.props.query
-        // Query = ["creativity", "service", etc]
-        db.collection("experiences").get()
-            .then(querySnapshot => {
-                const data = querySnapshot.docs.map(doc => doc.data());
-                this.setState({ experiences: data })
-            });
-    }
-
-    componentDidUpdate() {
-        let query = this.props.query
-        db.collection("experiences").get()
-            .then(querySnapshot => {
-                const data = querySnapshot.docs.map(doc => doc.data());
-                this.setState({ experiences: data })
-            });
-    }
 
     render() {
 
