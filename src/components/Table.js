@@ -66,7 +66,13 @@ class Table extends React.PureComponent {
           <div className="experience" key={index}>
             <div className="exp-name">
               <h2>{experience.name}</h2>
-              <a href={experience.link}>{experience.desc}</a>
+              <a
+                href={experience.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {experience.desc} <span role="img" aria-label="magnifying-glass">🔗</span>
+              </a>
             </div>
             <div className="properties">
               {experience.tags.map((tag, index) => (

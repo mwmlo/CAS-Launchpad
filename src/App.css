@@ -1,3 +1,5 @@
+/* Main page */
+
 .App {
   position: absolute;
   top: 0;
@@ -69,6 +71,8 @@
   margin-bottom: 20px;
 }
 
+/* Forms */
+
 form input[type="text"],
 form input[type="url"] {
   margin: 5px 0;
@@ -77,6 +81,11 @@ form input[type="url"] {
   align-items: center;
   background: rgba(255, 255, 255, 0.8);
   border: none;
+}
+
+.expDesc {
+  display: flex;
+  flex-direction: column;
 }
 
 form p {
@@ -98,6 +107,7 @@ form .outcomes input[type="checkbox"] {
 form select {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
+  width: 100%;
 }
 
 input[type="submit"] {
@@ -107,6 +117,7 @@ input[type="submit"] {
   background: transparent;
   border: 1.5px solid white;
   color: white;
+  width: 100%;
 }
 
 input[type="submit"]:hover {
@@ -184,7 +195,8 @@ input[type="submit"]:hover {
   color: white;
 }
 
-/* Modal */
+/* Filter Modal */
+
 .btn-primary {
   padding: 15px 10px;
   border-radius: 10px;
@@ -223,4 +235,137 @@ input[type="submit"]:hover {
 .filter form {
   display: flex;
   flex-direction: column;
+}
+
+/* Responsiveness */
+
+.showMobile {
+  display: none;
+  font-size: 25px;
+  font-style: italic;
+  margin: 10px 0;
+  color: aquamarine;
+}
+
+@media only screen and (max-width: 980px) {
+  .showMobile {
+    display: block;
+  }
+  .App {
+    flex-direction: column;
+    overflow-y: scroll;
+    height: auto;
+  }
+  .left {
+    width: 100vw;
+    height: fit-content;
+  }
+  .right {
+    width: 100vw;
+    height: fit-content;
+    flex-direction: column-reverse;
+    padding: 30px;
+  }
+  .right .table {
+    width: 100vw;
+  }
+  .btn-primary {
+    margin-bottom: 20px;
+  }
+  .addExperienceForm {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+  .addExperienceForm div {
+    width: 40vw;
+    margin: 0 2.5vw;
+  }
+  .addExperienceForm label {
+    display: flex;
+    justify-content: space-between;
+  }
+  form input[type="text"],
+  form input[type="url"] {
+    width: fit-content;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 800px) {
+  .showMobile {
+    display: block;
+  }
+  .addExperienceForm div {
+    width: 100vw;
+  }
+  .addExperienceForm label {
+    display: flex;
+    justify-content: space-between;
+  }
+  .addExperienceForm .category {
+    width: 35vw;
+    margin-right: 5vw;
+  }
+  .addExperienceForm .outcomes {
+    width: 35vw;
+  }
+  .right .table .experience .properties {
+    width: 50%;
+  }
+  .right .table .experience {
+    flex-direction: column;
+  }
+  .right .table .exp-name {
+    width: 100%;
+  }
+  .right .table .experience h2 {
+    margin-bottom: 0;
+  }
+  .right .table .experience .properties {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: -5px;
+  }
+  .right .table .experience .properties h5 {
+    margin: 5px;
+    padding: 5px 8px;
+    border-radius: 15px;
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .showMobile {
+    display: block;
+  }
+  .addExperienceForm {
+    flex-direction: column;
+  }
+  .addExperienceForm div {
+    width: 100%;
+    margin: 0;
+  }
+  .btn-primary {
+    font-size: 15px;
+  }
+  .right .table .experience {
+    flex-direction: column;
+  }
+  .right .table .exp-name {
+    width: 100%;
+  }
+  .right .table .experience h2 {
+    margin-bottom: 0;
+  }
+  .right .table .experience .properties {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: -5px;
+  }
+  .right .table .experience .properties h5 {
+    margin: 5px;
+    padding: 5px 8px;
+    border-radius: 15px;
+    font-size: 13px;
+  }
 }

@@ -20,7 +20,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="left">
-          <h1>CAS Launchpad</h1>
+          <h1>
+            <span role="img" aria-label="magnifying-glass">🔍</span> CAS Launchpad
+          </h1>
+          <h3 className="showMobile">
+            Scroll down to see all opportunities listed
+          </h3>
           <AddExperience />
         </div>
 

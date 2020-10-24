@@ -89,34 +89,36 @@ class AddExperience extends React.Component {
   render() {
     return (
       <form className="addExperienceForm" onSubmit={this.handleSubmit}>
-        <h1>Please add an experience!</h1>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            required
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Description:
-          <input
-            type="text"
-            name="desc"
-            required
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Link to more information:
-          <input
-            type="url"
-            name="link"
-            pattern="https?://.+"
-            onChange={this.handleChange}
-          />
-        </label>
+        <div className="expDesc">
+          <h1>Please add an experience!</h1>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="name"
+              required
+              onChange={this.handleChange}
+            />
+          </label>
+          <label>
+            Description:
+            <input
+              type="text"
+              name="desc"
+              required
+              onChange={this.handleChange}
+            />
+          </label>
+          <label>
+            Link to more information:
+            <input
+              type="url"
+              name="link"
+              pattern="https?://.+"
+              onChange={this.handleChange}
+            />
+          </label>
+        </div>
 
         <div className="category">
           <p>What CAS category does this experience count as?</p>
@@ -226,29 +228,30 @@ class AddExperience extends React.Component {
           </label>
         </div>
 
-        <p>Revelant university subjects</p>
-        <select
-          id="subjects"
-          name="subjects"
-          onChange={this.handleChange}
-          value={this.state.subjects}
-        >
-          <option value="socsci">N/A</option>
-          <option value="Arts & Humanities">Arts & Humanities</option>
-          <option value="Business, Law & Management">
-            Business, Law & Management
-          </option>
-          <option value="Engineering & Technology">
-            Engineering & Technology
-          </option>
-          <option value="Life Sciences & Medicine">
-            Life Sciences & Medicine
-          </option>
-          <option value="Physical Sciences">Physical Sciences</option>
-          <option value="Social Sciences">Social Sciences</option>
-        </select>
-
-        <input type="submit" value="Submit" />
+        <div>
+          <p>Revelant university subjects</p>
+          <select
+            id="subjects"
+            name="subjects"
+            onChange={this.handleChange}
+            value={this.state.subjects}
+          >
+            <option value="socsci">N/A</option>
+            <option value="Arts & Humanities">Arts & Humanities</option>
+            <option value="Business, Law & Management">
+              Business, Law & Management
+            </option>
+            <option value="Engineering & Technology">
+              Engineering & Technology
+            </option>
+            <option value="Life Sciences & Medicine">
+              Life Sciences & Medicine
+            </option>
+            <option value="Physical Sciences">Physical Sciences</option>
+            <option value="Social Sciences">Social Sciences</option>
+          </select>
+          <input type="submit" value="Submit" />
+        </div>
       </form>
     );
   }
