@@ -1,36 +1,38 @@
-import React from 'react';
-import './App.css';
-import db from "./firebase"
-import Table from './components/Table';
-import Search from './components/Search';
-import AddExperience from './components/AddExperience';
+import React from "react";
+import "./App.css";
+import Table from "./components/Table";
+import Search from "./components/Search";
+import AddExperience from "./components/AddExperience";
 
 class App extends React.Component {
+  state = { query: [], search: false };
 
-  state = {query: []}
-
-  updateAppQueryFunction = (filter) => {
-    this.setState({query: filter})
-  }
+  updateAppQuery = (filter) => {
+    this.setState({ query: filter, search: true });
+    if (filter.length < 1) {
+      this.setState({ search: false });
+    }
+  };
 
   render() {
-
-    console.log("Query state:", this.state.query)
+    let parameters = this.state.query.join(", ");
 
     return (
       <div className="App">
-
         <div className="left">
           <h1>CAS Launchpad</h1>
           <AddExperience />
         </div>
 
         <div className="right">
-          <Search updateAppQuery={this.updateAppQueryFunction}/>
-          {this.state.query}
           <Table query={this.state.query} />
+          <div>
+            <div className={this.state.search ? "showSearch" : "hideSearch"}>
+              You searched for: {parameters}
+            </div>
+            <Search updateAppQuery={this.updateAppQuery} />
+          </div>
         </div>
-
       </div>
     );
   }

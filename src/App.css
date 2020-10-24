@@ -15,13 +15,14 @@
   width: 40vw;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   background-image: url("./assets/CASBackground.jpeg");
   background-position: center;
   background-size: cover;
   background-blend-mode: darken;
-  padding: 50px;
+  padding: 40px;
   color: white;
+  overflow-y: scroll;
 }
 
 .left h1 {
@@ -35,6 +36,20 @@
   padding: 30px 50px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.showSearch {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #cee5e9;
+  border: none;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.hideSearch {
+  display: none;
 }
 
 /* Add Experience */
@@ -54,7 +69,8 @@
   margin-bottom: 20px;
 }
 
-.addExperienceForm input[type=text], .addExperienceForm input[type=url] {
+form input[type="text"],
+form input[type="url"] {
   margin: 5px 0;
   float: right;
   width: 250px;
@@ -63,28 +79,28 @@
   border: none;
 }
 
-.addExperienceForm p {
+form p {
   font-size: 18px;
   font-weight: bold;
   margin-top: 10px;
 }
 
-.addExperienceForm .category input[type=checkbox] {
+form .category input[type="checkbox"] {
   margin-right: 10px;
   width: 30px;
 }
 
-.addExperienceForm .outcomes input[type=checkbox] {
+form .outcomes input[type="checkbox"] {
   margin-right: 10px;
   width: 30px;
 }
 
-.addExperienceForm select {
+form select {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
 }
 
-input[type=submit] {
+input[type="submit"] {
   margin-top: 25px;
   padding: 8px;
   border-radius: 10px;
@@ -93,7 +109,7 @@ input[type=submit] {
   color: white;
 }
 
-input[type=submit]:hover {
+input[type="submit"]:hover {
   background: rgba(255, 255, 255, 0.5);
   border: 1.5px solid white;
   font-weight: bold;
@@ -103,7 +119,6 @@ input[type=submit]:hover {
 /* Database */
 
 .right .table {
-  margin-top: 5vh;
   width: 63vw;
   overflow-y: scroll;
 }
@@ -127,6 +142,10 @@ input[type=submit]:hover {
   font-weight: lighter;
   font-size: 18px;
   color: #ec6d51;
+}
+
+.right .table .exp-name {
+  width: 40%;
 }
 
 .right .table .experience .properties {
@@ -167,11 +186,13 @@ input[type=submit]:hover {
 
 /* Modal */
 .btn-primary {
-  padding: 10px;
+  padding: 15px 10px;
   border-radius: 10px;
   background-color: #003d5b;
   font-weight: bold;
+  font-size: 20px;
   border: none;
+  width: 100%;
 }
 
 .btn-primary:hover {
