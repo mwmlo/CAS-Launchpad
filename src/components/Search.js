@@ -15,7 +15,7 @@ class Search extends Component {
           data-toggle="modal"
           data-target="#addModal"
         >
-          Change filters for opportunities
+          Add search filters
         </button>
 
         <div className="modal fade" id="addModal" role="dialog">
@@ -23,7 +23,7 @@ class Search extends Component {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="addModal">
-                  Add an opportunity
+                  Look for an opportunity
                 </h5>
                 <button
                   type="button"
